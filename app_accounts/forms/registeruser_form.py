@@ -4,13 +4,7 @@ from app_accounts.models import CustomUser
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    
-    username = forms.TimeField(
-        widget=forms.TextInput(attrs={
-            'class': 'form-control'
-        }),
-    )
-    
+
     birth_date = forms.DateField(
         widget=forms.DateInput(attrs={
             'type': 'date',
