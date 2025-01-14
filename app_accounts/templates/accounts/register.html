@@ -1,0 +1,46 @@
+{% extends 'base_accounts.html' %}
+
+{% load static %}
+
+{% block title %}
+    Contas | Registro
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_accounts/registerStyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <form method="post" id="form">
+        {% csrf_token %}
+        <div>
+            <div class="label">{{ form.username.label_tag }}</div>
+            {{ form.username }}
+        </div>
+        <div>
+            <div class="label">{{ form.email.label_tag }}</div>
+            <div class="form-control">{{ form.email }}</div>
+        </div>
+        <div>
+            <div class="label">{{ form.birth_date.label_tag }}</div>
+            <div class="form-control">{{ form.birth_date }}</div>
+        </div>
+        <div>
+            <div class="label">{{ form.password1.label_tag }}</div>
+            <div class="form-control">{{ form.password1 }}</div>
+        </div>
+        <div>
+            <div class="label">{{ form.password2.label_tag }}</div>
+            <div class="form-control">{{ form.password2 }}</div>
+        </div>
+        <button class="btn btn-primary" type="submit">Registrar</button>
+    </form>
+    <a class="link d-flex flex-direction-row" href="{% url 'accounts:login' %}">
+        Voltar a tela de Login!
+    </a> 
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

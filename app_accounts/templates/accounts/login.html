@@ -1,0 +1,28 @@
+{% extends 'base_accounts.html' %}
+
+{% load static %}
+
+{% block title %}
+    Contas | Login
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_accounts/loginStyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <form method="post" id="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Logar</button>
+    </form>
+    <a class="link" href="{% url 'accounts:register' %}">
+        Ainda não tem uma conta? Registrar-se!
+    </a> 
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/teste.js' %}"></script>
+{% endblock %}

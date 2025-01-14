@@ -1,0 +1,28 @@
+{% extends 'base_pages.html' %}
+
+{% load static %}
+
+{% block title %}
+    Paginas | Home
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app_pages/homeStyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <h1>PARABENS, VOCÊ ESTÁ LOGADO!!!!</h2>
+    <div>
+        <a class="link" href="{% url 'accounts:login' %}">
+            Voltar a tela de Login!
+        </a> 
+        <a class="link" href="{% url 'accounts:logout' %}">
+            Sair da Conta.
+        </a> 
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
