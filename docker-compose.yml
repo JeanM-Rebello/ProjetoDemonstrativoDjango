@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  django_demonstrativo:
+    container_name: django_demonstrativo
+    environment:
+      - STATIC_URL=/static/
+    build:
+      context: .
+    ports:
+      - 5000:8000     
+    volumes:
+      - ./django_project:/django_project
+    env_file:
+      - ./env_files/.env
+    depends_on:
+      - postgres_demonstrativo
+    restart: unless-stopped
+  postgres_demonstrativo:
+    container_name: postgres_demonstrativo
+    image: postgres:13-alpine
+    volumes:
+      - ./data/postgres/data:/var/lib/postgresql/data/
+    env_file:
+      - ./env_files/.env
+    ports:
+      - 5001:5432
+    restart: unless-stopped
